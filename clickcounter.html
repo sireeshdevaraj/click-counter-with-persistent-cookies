@@ -1,0 +1,75 @@
+ <p style="font-size: 50px;" class="noselect">TOTAL CLICKS </p>
+ <p1 class="noselect" style="font-size: 50px;" id="ifcookiepresent"> </p1>
+ <script>
+    function setCookie(cname,cvalue) {
+      document.cookie = cname + "=" + cvalue + ";";
+    }
+    
+    function getCookie(cname) {
+      let name = cname + "=";
+      let ca = document.cookie.split(';');
+      for(let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) == ' ') {
+          c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+          return c.substring(name.length, c.length);
+        }
+      }
+      return "";
+    }
+    
+    function checkCookie() {
+      let user = getCookie("username");
+      if (user != "") {
+        alert("Welcome again " + user);
+        document.getElementById('ifcookiepresent').innerHTML=document.cookie.split(';')[1]
+      } else {
+        user = prompt("Please enter your name:", "");
+        if (user != "" && user != null) {
+          setCookie("username", user);
+        }
+      }
+    }
+    
+    
+    
+    
+    </script>
+ 
+
+ <h1 class="noselect"  id="clicks">0</h1>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <script src="clickcounter.js">
+    </script>
+
+
+<style>
+    .noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+</style>
+
+<body onload="checkCookie()"></body>
