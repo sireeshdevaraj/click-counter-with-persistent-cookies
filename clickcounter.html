@@ -1,15 +1,19 @@
  <p style="font-size: 50px;" class="noselect">TOTAL CLICKS </p>
  <p1 class="noselect" style="font-size: 50px;" id="ifcookiepresent"> </p1>
  <script>
-    function setCookie(cname,cvalue) {
-      document.cookie = cname + "=" + cvalue + ";";
+   //Add the cookie with your desired username
+    function setCookie(name,value) {
+      document.cookie = name + "=" + value + ";";
     }
-    
-    function getCookie(cname) {
-      let name = cname + "=";
-      let ca = document.cookie.split(';');
-      for(let i = 0; i < ca.length; i++) {
-        let c = ca[i];
+    //get the cookie available with aname as username which we will be using in our later code
+    //example
+    //if our cookie is : "username=kuuhaku; Highest Score=44"
+    //getCookie return us "kuuhaku"
+    function getCookie(aname) {
+      let name = aname + "=";
+      let array = document.cookie.split(';');
+      for(let i = 0; i < array.length; i++) {
+        let c = array[i];
         while (c.charAt(0) == ' ') {
           c = c.substring(1);
         }
@@ -19,14 +23,15 @@
       }
       return "";
     }
-    
+    //check is the cookie is present or not
+    //if present return normal,if not present let's ask him to enter the username to store inside the cookie
     function checkCookie() {
       let user = getCookie("username");
       if (user != "") {
         alert("Welcome again " + user);
         document.getElementById('ifcookiepresent').innerHTML=document.cookie.split(';')[1]
       } else {
-        user = prompt("Please enter your name:", "");
+        user = prompt("Please enter your name:", ""); //ask the user to enter his username
         if (user != "" && user != null) {
           setCookie("username", user);
         }
@@ -39,7 +44,8 @@
     </script>
  
 
- <h1 class="noselect"  id="clicks">0</h1>
+ <h1 class="noselect"  id="clicks">0</h1> 
+
 
 
 
