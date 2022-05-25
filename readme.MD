@@ -4,3 +4,5 @@
 
 # WORKING
 ![](https://github.com/sireeshdevaraj/click-counter-with-persistent-cookies/blob/master/assets/console.png)
+![](https://github.com/sireeshdevaraj/click-counter-with-persistent-cookies/blob/master/assets/enter-username.png)
+![](https://github.com/sireeshdevaraj/click-counter-with-persistent-cookies/blob/master/assets/score.jpg)
